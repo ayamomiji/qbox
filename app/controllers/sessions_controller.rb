@@ -3,8 +3,9 @@ class SessionsController < ApplicationController
 
   def create
     @auth = Auth.from_auth_hash(auth_hash)
-
-    render json: @auth
+    @auth.create_user unless @auth.user
+    self.current_user = @auth.user
+    redirect_to root_path
   end
 
   private
