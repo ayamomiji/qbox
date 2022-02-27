@@ -18,8 +18,8 @@
 require "test_helper"
 
 class UserTest < ActiveSupport::TestCase
-  it "should have nickname" do
-    refute User.create.valid?
+  it "generates random nickname if it is empty" do
+    assert User.create.nickname
   end
 
   it "should have friendly id" do

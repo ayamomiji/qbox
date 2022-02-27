@@ -24,7 +24,13 @@ class User < ApplicationRecord
 
   validates :nickname, presence: true
 
+  before_validation :set_random_nickname
+
   def normalize_friendly_id(input)
     input.to_s.to_slug.normalize.to_s
+  end
+
+  def set_random_nickname
+    self.nickname = self.nickname.presence || SecureRandom.uuid
   end
 end
