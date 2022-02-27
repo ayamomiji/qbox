@@ -22,4 +22,14 @@ ActiveRecord::Schema[7.0].define(version: 2022_02_27_170358) do
     t.index ["provider", "uid"], name: "index_auths_on_provider_and_uid", unique: true
   end
 
+  create_table "users", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.bigint "auth_id"
+    t.string "nickname"
+    t.string "slug"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["auth_id"], name: "index_users_on_auth_id"
+    t.index ["slug"], name: "index_users_on_slug", unique: true
+  end
+
 end

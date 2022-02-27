@@ -65,3 +65,8 @@ group :test do
   gem "webdrivers"
   gem "minitest-spec-rails"
 end
+
+gem "omniauth"
+gem "omniauth-rails_csrf_protection"
+gem "friendly_id"
+gem "babosa"
