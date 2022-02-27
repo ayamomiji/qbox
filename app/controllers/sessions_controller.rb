@@ -3,9 +3,14 @@ class SessionsController < ApplicationController
 
   def create
     @auth = Auth.from_auth_hash(auth_hash)
-    @auth.create_user unless @auth.user
-    self.current_user = @auth.user
-    redirect_to root_path
+    @user = @auth.user
+    if @user
+      redirect_to user_path(@user)
+    else
+      @user = @auth.create_user
+      redirect_to root_path
+    end
+    self.current_user = @user
   end
 
   private
