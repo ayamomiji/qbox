@@ -20,5 +20,8 @@ module QuestionBox
     # config.eager_load_paths << Rails.root.join("extras")
 
     config.hosts.clear
+
+    # Generate UUID as primary key.
+    config.generators.orm :active_record, primary_key_type: :uuid
   end
 end
