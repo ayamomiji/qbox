@@ -1,4 +1,8 @@
 <div class='prose mx-auto'>
   <h1>QBox</h1>
   <p>簡單到不行的匿名問答箱。</p>
+
+  <% unless Rails.env.production? %>
+    <%= button_to "使用開發者帳號登入", "/auth/developer", data: { turbo: false }, class: "px-3 py-1 border rounded cursor-pointer bg-gray-300 hover:bg-gray-200 transition" %>
+  <% end %>
 </div>
