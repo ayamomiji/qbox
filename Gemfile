@@ -58,6 +58,8 @@ group :development do
   # gem "spring"
 
   gem "rufo"
+
+  gem "annotate"
 end
 
 group :test do
