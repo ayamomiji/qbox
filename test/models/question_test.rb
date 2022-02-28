@@ -3,6 +3,7 @@
 # Table name: questions
 #
 #  id         :uuid             not null, primary key
+#  answered   :boolean          default(FALSE), not null
 #  body       :text
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
@@ -19,7 +20,11 @@
 require "test_helper"
 
 class QuestionTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  describe "#mark_as_answered!" do
+    it "updates answered" do
+      question = Question.create(user: User.create, skip_response: true)
+      question.mark_as_answered!
+      assert question.answered?
+    end
+  end
 end

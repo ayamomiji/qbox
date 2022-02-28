@@ -3,6 +3,7 @@
 # Table name: questions
 #
 #  id         :uuid             not null, primary key
+#  answered   :boolean          default(FALSE), not null
 #  body       :text
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
@@ -17,16 +18,22 @@
 #  fk_rails_...  (user_id => users.id)
 #
 class Question < ApplicationRecord
-  attr_accessor :response
+  attr_accessor :response, :skip_response
 
   belongs_to :user
   has_one :answer
 
   scope :sorted, -> { order(created_at: :desc) }
+  scope :unanswered, -> { where(answered: false) }
 
   validate :verify_hcaptcha, on: :create
 
+  def mark_as_answered!
+    update!(answered: true)
+  end
+
   def verify_hcaptcha
+    return if skip_response
     hcaptcha_response = HTTParty.post("https://hcaptcha.com/siteverify",
                                       body: {
                                         response: response,

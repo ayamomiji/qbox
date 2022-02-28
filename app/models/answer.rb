@@ -19,5 +19,11 @@
 class Answer < ApplicationRecord
   belongs_to :question
 
+  after_create :mark_question_as_answered!
+
   scope :recently, -> { order(created_at: :desc).includes(:question) }
+
+  def mark_question_as_answered!
+    question.mark_as_answered!
+  end
 end
