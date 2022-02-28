@@ -5,4 +5,6 @@
   <% unless Rails.env.production? %>
     <%= button_to "使用開發者帳號登入", "/auth/developer", data: { turbo: false }, class: "px-3 py-1 border rounded cursor-pointer bg-gray-300 hover:bg-gray-200 transition" %>
   <% end %>
+
+  <%= button_to "使用 Google 帳號登入", "/auth/google", data: { turbo: false }, class: "px-3 py-1 border rounded cursor-pointer bg-gray-300 hover:bg-gray-200 transition" %>
 </div>
