@@ -18,4 +18,6 @@
 #
 class Answer < ApplicationRecord
   belongs_to :question
+
+  scope :recently, -> { order(created_at: :desc).includes(:question) }
 end

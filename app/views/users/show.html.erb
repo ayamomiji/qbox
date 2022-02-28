@@ -6,5 +6,11 @@
     <%= f.submit class: "px-3 py-1 border rounded cursor-pointer bg-blue-700 hover:bg-blue-600 text-white transition" %>
   <% end %>
 
-  <p>TODO: 最近已答</p>
+  <h2>最近已答</h2>
+
+  <% @answers.each do |answer| %>
+    <blockquote><%= answer.question.body %></blockquote>
+    <div><%= simple_format answer.body %></div>
+    <hr />
+  <% end %>
 </div>
