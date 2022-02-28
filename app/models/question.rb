@@ -18,6 +18,7 @@
 #
 class Question < ApplicationRecord
   belongs_to :user
+  has_one :answer
 
   scope :sorted, -> { order(created_at: :desc) }
 end
