@@ -1,5 +1,5 @@
 <div class='prose mx-auto max-w-none'>
-  <h2>未解問題</h2>
+  <h2><%= title "未解問題" %></h2>
 
   <% @questions.each do |question| %>
     <%= render "item", question: question %>

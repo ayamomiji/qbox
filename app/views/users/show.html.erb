@@ -1,5 +1,5 @@
 <div class='prose mx-auto max-w-none'>
-  <h2><%= @user.nickname %> 的問答箱</h2>
+  <h2><%= title "#{@user.nickname} 的問答箱" %></h2>
 
   <%= render "questions/form", user: @user, question: @question %>
 
