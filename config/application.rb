@@ -23,5 +23,8 @@ module QuestionBox
 
     # Generate UUID as primary key.
     config.generators.orm :active_record, primary_key_type: :uuid
+
+    # Do not generate fixtures (will use factory_bot later)
+    config.generators.test_framework :test_unit, fixture: false
   end
 end
