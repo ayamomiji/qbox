@@ -1,0 +1,12 @@
+<div class='prose mx-auto'>
+  <h2>未解問題</h2>
+
+  <% @questions.each do |question| %>
+    <blockquote>
+      <%= simple_format question.body %>
+      <div class='text-right text-xs text-gray-600'>
+        <%= l(question.created_at) %>
+      </div>
+    </blockquote>
+  <% end %>
+</div>

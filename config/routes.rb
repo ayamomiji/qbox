@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :users do
     resources :questions
   end
+  resources :unanswered_questions
 
   match "/auth/:provider/callback", to: "sessions#create", via: %i[get post]
 
