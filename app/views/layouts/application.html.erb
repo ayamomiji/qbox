@@ -14,14 +14,24 @@
 
   <body>
     <% if current_user %>
-      <div class='p-3 border-b shadow bg-blue-100'>
-        <%= link_to "QBox", root_path, class: "text-blue-600 underline" %>
-        <%= link_to "我的資料", edit_profile_path, class: "text-blue-600 underline" %>
-        <%= link_to "我的問答箱", user_path(current_user), class: "text-blue-600 underline" %>
-        <%= link_to "未解問題", unanswered_questions_path, class: "text-blue-600 underline" %>
-      </div>
+      <header class='p-3 border-b shadow bg-blue-100'>
+        <div class='container mx-auto'>
+          <%= link_to "QBox", root_path, class: "text-blue-600 underline" %>
+          <%= link_to "我的資料", edit_profile_path, class: "text-blue-600 underline" %>
+          <%= link_to "我的問答箱", user_path(current_user), class: "text-blue-600 underline" %>
+          <%= link_to "未解問題", unanswered_questions_path, class: "text-blue-600 underline" %>
+        </div>
+      </header>
     <% end %>
 
-    <%= yield %>
+    <div class='container mx-auto'>
+      <%= yield %>
+    </div>
+
+    <footer class='container mx-auto'>
+      <div class='p-2 flex justify-center gap-4'>
+        <div class='text-sm text-gray-500'>© 2022 QBox</div>
+      </div>
+    </footer>
   </body>
 </html>
