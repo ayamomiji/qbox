@@ -17,16 +17,16 @@
   </head>
 
   <body>
-    <% if current_user %>
-      <header class='p-3 border-b shadow bg-blue-100'>
-        <div class='container mx-auto'>
-          <%= link_to "QBox", root_path, class: "text-blue-600 underline" %>
+    <header class='p-3 border-b shadow bg-blue-100'>
+      <div class='container mx-auto'>
+        <%= link_to "QBox", root_path, class: "text-blue-600 underline" %>
+        <% if current_user %>
           <%= link_to "我的資料", edit_profile_path, class: "text-blue-600 underline" %>
           <%= link_to "我的問答箱", user_path(current_user), class: "text-blue-600 underline" %>
           <%= link_to "未解問題", unanswered_questions_path, class: "text-blue-600 underline" %>
-        </div>
-      </header>
-    <% end %>
+        <% end %>
+      </div>
+    </header>
 
     <main class='container px-3 md:px-0 md:mx-auto'>
       <%= yield %>
