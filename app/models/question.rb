@@ -6,6 +6,7 @@
 #
 #  id         :uuid             not null, primary key
 #  answered   :boolean          default(FALSE), not null
+#  archived   :boolean          default(FALSE), not null
 #  body       :text
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
@@ -25,6 +26,7 @@ class Question < ApplicationRecord
   belongs_to :user
   has_one :answer
 
+  scope :unarchived, -> { where(archived: false) }
   scope :sorted, -> { order(created_at: :desc) }
   scope :unanswered, -> { where(answered: false) }
 
@@ -33,6 +35,10 @@ class Question < ApplicationRecord
 
   def mark_as_answered!
     update!(answered: true)
+  end
+
+  def archive!
+    update!(archived: true)
   end
 
   def verify_hcaptcha

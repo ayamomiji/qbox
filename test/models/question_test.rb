@@ -6,6 +6,7 @@
 #
 #  id         :uuid             not null, primary key
 #  answered   :boolean          default(FALSE), not null
+#  archived   :boolean          default(FALSE), not null
 #  body       :text
 #  created_at :datetime         not null
 #  updated_at :datetime         not null

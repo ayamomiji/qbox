@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     resources :questions, only: :create
   end
   resources :unanswered_questions
-  resources :questions, only: [] do
+  resources :questions, only: [:destroy] do
     resource :answer
   end
 

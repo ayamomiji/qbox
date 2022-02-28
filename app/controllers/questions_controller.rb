@@ -11,6 +11,13 @@ class QuestionsController < ApplicationController
     end
   end
 
+  def destroy
+    @user = current_user
+    @question = @user.questions.find(params[:id])
+    @question.archive!
+    render turbo_stream: turbo_stream.remove(@question)
+  end
+
   private
 
   def question_params
