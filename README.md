@@ -1,24 +1,43 @@
-# README
+# QBox
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+簡單到不行的匿名問答箱。
 
-Things you may want to cover:
+https://qbox.bunya.tw
 
-* Ruby version
+# 系統需求
 
-* System dependencies
+- Ruby 3.1+
+- PostgreSQL 14+
+- Node 16+
 
-* Configuration
+# 初始化
 
-* Database creation
+```
+bundle install
+yarn
+rails db:create db:migrate
+```
 
-* Database initialization
+# 啟動開發伺服器
 
-* How to run the test suite
+```
+bin/dev
+```
 
-* Services (job queues, cache servers, search engines, etc.)
+# 測試
 
-* Deployment instructions
+目前覆蓋率趨近於零...
 
-* ...
+```
+rails test
+```
+
+# 部署
+
+設置好 dokku server, 然後:
+
+```
+git push dokku master
+```
+
+© 2022 QBox
