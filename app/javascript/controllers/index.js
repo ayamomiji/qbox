@@ -3,6 +3,8 @@
 // ./bin/rails generate stimulus controllerName
 
 import { application } from './application'
+import HCaptchaFormController from './hcaptcha_form_controller'
 import HelloController from './hello_controller'
 
 application.register('hello', HelloController)
+application.register('hcaptcha-form', HCaptchaFormController)

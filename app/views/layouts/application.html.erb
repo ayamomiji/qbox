@@ -8,6 +8,8 @@
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
+    <script src="https://js.hcaptcha.com/1/api.js?hl=zh-TW"></script>
+    <meta name="hcaptcha-sitekey" content="<%= ENV["HCAPTCHA_SITEKEY"] %>">
   </head>
 
   <body>
