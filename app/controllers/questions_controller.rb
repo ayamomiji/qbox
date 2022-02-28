@@ -2,8 +2,11 @@ class QuestionsController < ApplicationController
   def create
     @user = User.friendly.find(params[:user_id])
     @question = @user.questions.new(question_params)
-    @question.save
-    redirect_to user_path(@user)
+    if @question.save
+      render :create
+    else
+      render :new
+    end
   end
 
   private

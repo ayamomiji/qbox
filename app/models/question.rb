@@ -26,6 +26,7 @@ class Question < ApplicationRecord
   scope :sorted, -> { order(created_at: :desc) }
   scope :unanswered, -> { where(answered: false) }
 
+  validates :body, presence: true
   validate :verify_hcaptcha, on: :create
 
   def mark_as_answered!
