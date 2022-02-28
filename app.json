@@ -1,0 +1,12 @@
+{
+  "formations": {
+    "web": {
+      "quantity": 1
+    }
+  },
+  "scripts": {
+    "dokku": {
+      "postdeploy": "bin/rails db:migrate"
+    }
+  }
+}
