@@ -5,7 +5,7 @@ class AnswersController < ApplicationController
   def create
     @answer = @question.answer || @question.build_answer
     @answer.update(answer_params)
-    redirect_to :back
+    redirect_to unanswered_questions_path
   end
 
   private
