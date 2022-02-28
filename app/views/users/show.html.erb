@@ -1,5 +1,10 @@
 <div class='prose mx-auto'>
   <h2><%= @user.nickname %> 的問答箱</h2>
 
+  <%= form_with model: [@user, @question] do |f| %>
+    <%= f.text_area :body, class: "w-full p-1 border rounded", placeholder: "填寫你的問題..." %>
+    <%= f.submit class: "px-3 py-1 border rounded cursor-pointer bg-blue-700 hover:bg-blue-600 text-white transition" %>
+  <% end %>
+
   <p>TODO: 最近已答</p>
 </div>

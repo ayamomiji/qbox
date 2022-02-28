@@ -1,3 +1,17 @@
+# == Schema Information
+#
+# Table name: auths
+#
+#  id         :uuid             not null, primary key
+#  provider   :string
+#  uid        :string
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+# Indexes
+#
+#  index_auths_on_provider_and_uid  (provider,uid) UNIQUE
+#
 class Auth < ApplicationRecord
   has_one :user
 

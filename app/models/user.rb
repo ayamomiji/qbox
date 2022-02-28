@@ -4,16 +4,15 @@
 #
 #  id         :uuid             not null, primary key
 #  nickname   :string
-#  provider   :string
 #  slug       :string
-#  uid        :string
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  auth_id    :bigint
 #
 # Indexes
 #
-#  index_users_on_provider_and_uid  (provider,uid) UNIQUE
-#  index_users_on_slug              (slug) UNIQUE
+#  index_users_on_auth_id  (auth_id)
+#  index_users_on_slug     (slug) UNIQUE
 #
 class User < ApplicationRecord
   extend FriendlyId
@@ -21,6 +20,7 @@ class User < ApplicationRecord
   friendly_id :nickname, use: :slugged
 
   belongs_to :auth, optional: true
+  has_many :questions
 
   validates :nickname, presence: true
 
