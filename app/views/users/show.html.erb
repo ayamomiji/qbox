@@ -6,8 +6,6 @@
   <h2>最近已答</h2>
 
   <% @answers.each do |answer| %>
-    <blockquote><%= answer.question.body %></blockquote>
-    <div><%= simple_format answer.body %></div>
-    <hr />
+    <%= render "answer", answer: answer %>
   <% end %>
 </div>
