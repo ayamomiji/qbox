@@ -31,6 +31,10 @@ class User < ApplicationRecord
     input.to_s.to_slug.normalize.to_s
   end
 
+  def should_generate_new_friendly_id?
+    nickname_changed?
+  end
+
   def set_random_nickname
     self.nickname = self.nickname.presence || SecureRandom.uuid
   end
