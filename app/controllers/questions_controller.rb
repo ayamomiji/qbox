@@ -1,6 +1,10 @@
 # frozen_string_literal: true
 
 class QuestionsController < ApplicationController
+  def show
+    @question = Question.find(params[:id])
+  end
+
   def create
     @user = User.friendly.find(params[:user_id])
     @question = @user.questions.new(question_params)

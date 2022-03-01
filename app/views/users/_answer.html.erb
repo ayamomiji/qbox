@@ -1,10 +1,10 @@
 <div class='block border rounded shadow mt-3'>
-  <div class='p-1 bg-green-100'>
+  <%= link_to question_path(answer.question), class: "block p-1 bg-green-100 no-underline" do %>
     <div class='italic'><%= text_to_line_breaks answer.question.body %></div>
     <div class='text-right text-xs text-gray-600'>
       <%= l(answer.question.created_at) %>
     </div>
-  </div>
+  <% end %>
   <div class='p-1'>
     <div><%= text_to_line_breaks answer.body %></div>
     <div class='text-right text-xs text-gray-600'>

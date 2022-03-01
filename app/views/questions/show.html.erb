@@ -1,0 +1,7 @@
+<% title truncate(@question.body) %>
+<% description truncate(@question.answer.body) %>
+
+<div class='prose mx-auto max-w-none'>
+  <h2>對 <%= link_to @question.user.nickname, user_path(@question.user) %> 的提問</h2>
+  <%= render "users/answer", answer: @question.answer %>
+</div>
